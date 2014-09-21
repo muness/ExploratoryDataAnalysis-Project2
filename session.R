@@ -7,11 +7,15 @@ head(NEI)
 class(NEI)
 
 library(reshape2)
-NEI_melt_by_year <- melt(NEI, id.vars = "year", measure.vars = "Emissions") 
+NEI_melt_by_year <- melt(NEI, id.vars="year", measure.vars="Emissions") 
 
 head(NEI_melt_by_year)
 NEI_pivot_by_year <- dcast(NEI_melt_by_year, year ~ variable, sum) 
 
+png("plot1.png")
 plot(NEI_pivot_by_year, type="p", main="Emission by year")
 # this shows that there has been a drop in emmissions from 1999 to 2008
+dev.off()
 
+NEI_pivot_balt_by_year <- melt(subset(NEI, fips=="", id.vars=c("fips", "year"), measure.vars= "Emissions")
+head(NEI_pivot_balt_by_year)
