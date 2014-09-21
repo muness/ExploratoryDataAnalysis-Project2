@@ -13,3 +13,4 @@ head(NEI_melt_by_year)
 NEI_pivot_by_year <- dcast(NEI_melt_by_year, year ~ variable, sum) 
 
 plot(NEI_pivot_by_year, type="p", main="Emission by year")
+# this shows that there has been a drop in emmissions from 1999 to 2008
